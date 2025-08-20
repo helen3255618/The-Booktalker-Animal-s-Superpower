@@ -1,8 +1,10 @@
+// app/page.tsx
+
 'use client';
 
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import type { Page, Book, TimeBasedStyles, Language } from '../types';
-import { useLanguage } from '../hooks/useLanguage';
+import { LanguageProvider, useLanguage } from '../hooks/useLanguage';
 import { SKY_COLOR_PALETTE, FONT_COLORS, PAGE_CAMERA_Z, BOOKS } from '../constants';
 import WelcomePage from '../components/WelcomePage';
 import ChatPage from '../components/ChatPage';
@@ -10,13 +12,22 @@ import ThreeScene from '../components/ThreeScene';
 import { BackArrowIcon } from '../components/icons';
 import LanguageSelectionPage from '../components/LanguageSelectionPage';
 
-export default function HomePage() {
+export default function AppWrapper() {
+  return (
+    <LanguageProvider>
+      <HomePage />
+    </LanguageProvider>
+  );
+}
+
+function HomePage() {
   const [page, setPage] = useState<Page>('language-select');
   const [activeBook, setActiveBook] = useState<Book | null>(null);
   const { t, setLanguage } = useLanguage();
+
   const [timeStyles, setTimeStyles] = useState<TimeBasedStyles>({
-    sky: SKY_COLOR_PALETTE[new Date().getHours()],
-    font: { color: FONT_COLORS[new Date().getHours()], shadow: '' },
+    sky: SKY_COLOR_PALETTE[12],
+    font: { color: FONT_COLORS[12], shadow: "2px 2px 4px rgba(0,0,0,0.4)" },
     isNight: false,
   });
 
@@ -68,9 +79,14 @@ export default function HomePage() {
   };
 
   return (
-    <main>
-      <ThreeScene targetCameraZ={targetCameraZ} timeStyles={timeStyles} />
-      <div className="absolute inset-0 z-20">
+    <div className="w-screen h-screen">
+      
+      <div className="fixed top-0 left-0 w-full h-full -z-10">
+        <ThreeScene targetCameraZ={targetCameraZ} timeStyles={timeStyles} />
+      </div>
+
+      <div className="relative z-10 w-full h-full">
+        
         {(page === 'welcome' || page === 'chat') && (
           <button 
             onClick={handleGoBack} 
@@ -92,6 +108,6 @@ export default function HomePage() {
           {activeBook && <ChatPage book={activeBook} fontStyles={timeStyles.font} />}
         </div>
       </div>
-    </main>
+    </div>
   );
 };

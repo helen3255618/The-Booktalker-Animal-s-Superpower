@@ -1,6 +1,8 @@
-import type { Metadata } from 'next';
-import { LanguageProvider } from '../hooks/useLanguage';
+// app/layout.tsx
+
 import './globals.css';
+import { Providers } from './providers';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: '书语者 | The Booktalker',
@@ -15,9 +17,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <LanguageProvider>
+        <Providers>
           {children}
-        </LanguageProvider>
+        </Providers>
       </body>
     </html>
   );
