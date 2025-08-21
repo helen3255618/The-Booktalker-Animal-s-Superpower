@@ -44,4 +44,4 @@ export const SKY_COLOR_PALETTE: SkyColor[] = [
     { top: "#413d54", middle1: "#37344c", middle2: "#303451", bottom: "#29304e" }  // 23:00
 ];
 
-export const FONT_COLORS: string[] = [ "#c8cbd0", "#c8cbd0", "#c8cbd0", "#c8cbd0", "#c8cbd0", "#c8cbd0", "#2c3e50", "#2c3e50", "#34495e", "#34495e", "#34495e", "#34495e", "#34495e", "#34495e", "#34495e", "#34495e", "#2c3e50", "#c8cbd0", "#c8cbd0", "#c8cbd0", "#c8cbd0", "#c8cbd0", "#c8cbd0", "#c8cbd0" ];
+export const FONT_COLORS: string[] = [ "#c8cbd0", "#c8cbd0", "#c8cbd0", "#c8cbd0", "#c8cbd0", "#c8cbd0", "#2c3e50", "#2c3e50", "#34495e", "#34495e", "#34495e", "#34495e", "#34495e", "#34495e", "#34495e", "#34495e", "#2c3e50", "#7a7d83ff", "#82858bff", "#c8cbd0", "#c8cbd0", "#c8cbd0", "#c8cbd0", "#c8cbd0" ];
