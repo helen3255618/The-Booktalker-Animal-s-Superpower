@@ -3,6 +3,7 @@
 import './globals.css';
 import { Providers } from './providers';
 import type { Metadata } from 'next';
+import { Analytics } from '@vercel/analytics/react'; // ✅ 1. 在这里添加这一行导入
 
 export const metadata: Metadata = {
   title: '书语者 | The Booktalker',
@@ -20,6 +21,7 @@ export default function RootLayout({
         <Providers>
           {children}
         </Providers>
+        <Analytics /> {/* ✅ 2. 在 </body> 标签之前添加这一行 */}
       </body>
     </html>
   );
