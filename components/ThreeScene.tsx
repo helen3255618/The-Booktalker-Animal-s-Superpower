@@ -128,7 +128,7 @@ const ThreeScene: React.FC<ThreeSceneProps> = ({ targetCameraZ, timeStyles }) =>
         scene.add(shape);
     }
     const createGiantBubble = (size: number, color: number, position: THREE.Vector3) => {
-        const bubble = new THREE.Mesh(new THREE.SphereGeometry(size, 64, 32), createBubbleMaterial(color));
+        const bubble = new THREE.Mesh(new THREE.SphereGeometry(size, 32, 16), createBubbleMaterial(color));
         bubble.position.copy(position);
         bubble.userData = { rotationSpeed: new THREE.Vector3((Math.random()-0.5)*0.001, (Math.random()-0.5)*0.001, (Math.random()-0.5)*0.001), velocity: new THREE.Vector3(), acceleration: new THREE.Vector3() };
         bubblesRef.current.push(bubble);
