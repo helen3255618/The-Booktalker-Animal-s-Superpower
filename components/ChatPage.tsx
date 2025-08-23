@@ -183,7 +183,7 @@ const ChatPage: React.FC<{ book: Book; fontStyles: { color: string; shadow: stri
   };
 
   return (
-    <div className="absolute inset-0 z-10 flex flex-col items-center justify-end p-2 sm:p-5">
+    <div className="absolute inset-0 flex items-center justify-center z-10 p-5">
       <div className="w-full max-w-3xl h-[90%] max-h-[90vh] flex flex-col bg-white/20 backdrop-blur-xl shadow-2xl rounded-2xl">
         <div className="flex-grow overflow-y-auto p-4 sm:p-8 flex flex-col space-y-4">
           {messages.map((msg, index) => (

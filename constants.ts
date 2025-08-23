@@ -5,10 +5,50 @@ export const BOOKS: Book[] = [
 ];
 
 export const TRANSLATIONS: Translations = {
-    "en": { "title": "The Booktalker", "subtitle": "Converse with the spirit of books", "enter_button": "Explore Animal Superpowers", "back_button": "Back", "chat_placeholder": "Ask about the book...", "send_button": "Send", "initial_chat_message": "Hello, please introduce yourself based on your instructions." },
-    "fr": { "title": "Le Bouquineur", "subtitle": "Conversez avec l'esprit des livres", "enter_button": "Explorer les Superpouvoirs Animaux", "back_button": "Retour", "chat_placeholder": "Interrogez le livre...", "send_button": "Envoyer", "initial_chat_message": "Bonjour, veuillez vous présenter en suivant vos instructions." },
-    "zh": { "title": "书语者", "subtitle": "与书之灵对话", "enter_button": "探索动物的超能力", "back_button": "返回", "chat_placeholder": "与这本书对话…", "send_button": "发送", "initial_chat_message": "你好，请根据你的指示进行自我介绍。" },
-    "de": { "title": "Der Buchplauderer", "subtitle": "Unterhalte dich mit dem Geist der Bücher", "enter_button": "Entdecke tierische Superkräfte", "back_button": "Zurück", "chat_placeholder": "Fragen Sie nach dem Buch...", "send_button": "Senden", "initial_chat_message": "Hallo, bitte stellen Sie sich gemäß Ihren Anweisungen vor." }
+    "en": { 
+        "title": "The Booktalker", 
+        "subtitle": "Converse with the spirit of books", 
+        "enter_button": "Explore Animal Superpowers", 
+        "back_button": "Back", 
+        "chat_placeholder": "Ask about the book...", 
+        "send_button": "Send", 
+        "initial_chat_message": "Hello, please introduce yourself based on your instructions.",
+        "footer_guide": "User Guide",      
+        "footer_contact": "Contact Us"
+    },
+    "fr": { 
+        "title": "Le Bouquineur", 
+        "subtitle": "Conversez avec l'esprit des livres", 
+        "enter_button": "Explorer les Superpouvoirs Animaux", 
+        "back_button": "Retour", 
+        "chat_placeholder": "Interrogez le livre...", 
+        "send_button": "Envoyer", 
+        "initial_chat_message": "Bonjour, veuillez vous présenter en suivant vos instructions.",
+        "footer_guide": "Guide d'utilisation", 
+        "footer_contact": "Nous Contacter"
+    },
+    "zh": { 
+        "title": "书语者", 
+        "subtitle": "与书之灵对话", 
+        "enter_button": "探索动物的超能力", 
+        "back_button": "返回", 
+        "chat_placeholder": "与这本书对话…", 
+        "send_button": "发送", 
+        "initial_chat_message": "你好，请根据你的指示进行自我介绍。",
+        "footer_guide": "使用手册",          
+        "footer_contact": "联系我们"
+    },
+    "de": { 
+        "title": "Der Buchplauderer", 
+        "subtitle": "Unterhalte dich mit dem Geist der Bücher", 
+        "enter_button": "Entdecke tierische Superkräfte", 
+        "back_button": "Zurück", 
+        "chat_placeholder": "Fragen Sie nach dem Buch...", 
+        "send_button": "Senden", 
+        "initial_chat_message": "Hallo, bitte stellen Sie sich gemäß Ihren Anweisungen vor.",
+        "footer_guide": "Benutzerhandbuch", 
+        "footer_contact": "Kontakt"
+    }
 };
 
 export const PAGE_CAMERA_Z: Record<string, number> = {
@@ -44,4 +84,4 @@ export const SKY_COLOR_PALETTE: SkyColor[] = [
     { top: "#413d54", middle1: "#37344c", middle2: "#303451", bottom: "#29304e" }  // 23:00
 ];
 
-export const FONT_COLORS: string[] = [ "#c8cbd0", "#c8cbd0", "#c8cbd0", "#c8cbd0", "#c8cbd0", "#c8cbd0", "#2c3e50", "#2c3e50", "#34495e", "#34495e", "#34495e", "#34495e", "#34495e", "#34495e", "#34495e", "#34495e", "#2c3e50", "#7a7d83ff", "#82858bff", "#c8cbd0", "#c8cbd0", "#c8cbd0", "#c8cbd0", "#c8cbd0" ];
+export const FONT_COLORS: string[] = [ "#d7dadfff", "#d4d7dbff", "#c8cbd0", "#c8cbd0", "#c8cbd0", "#c8cbd0", "#2c3e50", "#2c3e50", "#34495e", "#34495e", "#34495e", "#34495e", "#34495e", "#34495e", "#34495e", "#34495e", "#2c3e50", "#7a7d83ff", "#958c97ff", "#777377ff", "#e2e4e7ff", "#c8cbd0", "#c8cbd0", "#c8cbd0" ];
