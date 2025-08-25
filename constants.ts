@@ -14,7 +14,8 @@ export const TRANSLATIONS: Translations = {
         "send_button": "Send", 
         "initial_chat_message": "Hello, please introduce yourself based on your instructions.",
         "footer_guide": "User Guide",      
-        "footer_contact": "Contact Us"
+        "footer_contact": "Contact Us",
+        "footer_our_story": "Our Story",
     },
     "fr": { 
         "title": "Le Bouquineur", 
@@ -25,7 +26,8 @@ export const TRANSLATIONS: Translations = {
         "send_button": "Envoyer", 
         "initial_chat_message": "Bonjour, veuillez vous présenter en suivant vos instructions.",
         "footer_guide": "Guide d'utilisation", 
-        "footer_contact": "Nous Contacter"
+        "footer_contact": "Nous Contacter",
+        "footer_our_story": "Notre Histoire",
     },
     "zh": { 
         "title": "书语者", 
@@ -36,7 +38,8 @@ export const TRANSLATIONS: Translations = {
         "send_button": "发送", 
         "initial_chat_message": "你好，请根据你的指示进行自我介绍。",
         "footer_guide": "使用手册",          
-        "footer_contact": "联系我们"
+        "footer_contact": "联系我们",
+        "footer_our_story": "我们的故事",
     },
     "de": { 
         "title": "Der Buchplauderer", 
@@ -47,7 +50,8 @@ export const TRANSLATIONS: Translations = {
         "send_button": "Senden", 
         "initial_chat_message": "Hallo, bitte stellen Sie sich gemäß Ihren Anweisungen vor.",
         "footer_guide": "Benutzerhandbuch", 
-        "footer_contact": "Kontakt"
+        "footer_contact": "Kontakt",
+        "footer_our_story": "Unsere Geschichte",
     }
 };
 
