@@ -50,27 +50,42 @@ const Footer: React.FC = () => {
         </div>
       </footer>
 
-      {/* 重新添加 Modal 组件，并连接到 isGuideOpen 状态 */}
       <Modal 
         isOpen={isGuideOpen} 
         onClose={() => setIsGuideOpen(false)} 
-        title={t('footer_guide')}
+        title={t('guide_title')}
       >
-        <h4>欢迎来到探险！</h4>
-        <p><strong>第一步：选择你的探险伙伴</strong></p>
-        <p>点击屏幕上的动物卡片，对应的“书之灵”就会出现并和你打招呼！</p>
-        <br/>
-        <p><strong>第二步：与书之灵对话</strong></p>
-        <p>你可以直接提问，或者点击AI下方出现的建议按钮，继续深入探索它的秘密！</p>
+        <p className="mb-2">{t('guide_p1')}</p>
+        <p className="mb-4">{t('guide_p2')}</p>
+        
+        <h4 className="font-bold mt-4">{t('guide_how_to')}</h4>
+        <p>{t('guide_how_to_p1')}</p>
+        <p>{t('guide_how_to_p2')}</p>
+        
+        <h4 className="font-bold mt-4">{t('guide_inspiration')}</h4>
+        <p>{t('guide_inspiration_p1')}</p>
+        <ul className="list-disc list-outside text-sm mt-2 space-y-1 pl-4">
+            <li>{t('guide_ex1')}</li>
+            <li>{t('guide_ex2')}</li>
+            <li>{t('guide_ex3')}</li>
+            <li>{t('guide_ex4')}</li>
+            <li>{t('guide_ex5')}</li>
+        </ul>
+        
+        <p className="mt-4">{t('guide_outro1')}</p>
+        <p className="mt-2"><strong>{t('guide_outro2')}</strong></p>
       </Modal>
 
       <Modal 
         isOpen={isStoryOpen} 
         onClose={() => setIsStoryOpen(false)} 
-        title={t('footer_our_story')}
+        title={t('story_title')}
       >
-        <p>每一种动物都在用自己的方式生存，它们的能力看似平常，却蕴含着令人惊叹的智慧。</p>
-        <p>继续... ... </p>
+        <p className="mb-4">{t('story_p1')}</p>
+        <p className="mb-4">{t('story_p2')}</p>
+        <p className="mb-4">{t('story_p3')}</p>
+        <p className="mb-4">{t('story_p4')}</p>
+        <p><strong>{t('story_p5')}</strong></p>
       </Modal>
 
       <Modal
@@ -78,8 +93,9 @@ const Footer: React.FC = () => {
       onClose={() => setIsContactOpen(false)} 
       title={t('footer_contact')}
       >
-      <h4>我们的邮箱</h4>
-      <p>animalsuperpowers.app@gmail.com</p>
+      <p>{t('contact_modal_p1')}</p>
+      <p className="font-bold text-lg text-center my-4 select-all">{contactEmail}</p>
+      <p>{t('contact_modal_p2')}</p>
       </Modal> 
     </>
   );
