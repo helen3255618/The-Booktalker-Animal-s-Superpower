@@ -1,17 +1,19 @@
-// app/page.tsx
-
 'use client';
 
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
-import type { Page, Book, TimeBasedStyles, Language } from '../types';
+import React, { useState, useMemo, useCallback } from 'react';
+import Footer from '../components/Footer'; //
+import type { Page, Book, Language } from '../types';
 import { LanguageProvider, useLanguage } from '../hooks/useLanguage';
-import { SKY_COLOR_PALETTE, FONT_COLORS, PAGE_CAMERA_Z, BOOKS } from '../constants';
+import { useTimeStyle } from '../hooks/useTimeStyle'; // Import the new hook
+import { PAGE_CAMERA_Z, BOOKS } from '../constants';
 import WelcomePage from '../components/WelcomePage';
 import ChatPage from '../components/ChatPage';
 import ThreeScene from '../components/ThreeScene';
 import { BackArrowIcon } from '../components/icons';
 import LanguageSelectionPage from '../components/LanguageSelectionPage';
 
+// This wrapper is needed to provide the Language context
+// because useLanguage() is used inside HomePage.
 export default function AppWrapper() {
   return (
     <LanguageProvider>
@@ -24,33 +26,9 @@ function HomePage() {
   const [page, setPage] = useState<Page>('language-select');
   const [activeBook, setActiveBook] = useState<Book | null>(null);
   const { t, setLanguage } = useLanguage();
+  const { timeStyles } = useTimeStyle(); // Get time-based styles from our new global provider!
 
-  const [timeStyles, setTimeStyles] = useState<TimeBasedStyles>({
-    sky: SKY_COLOR_PALETTE[12],
-    font: { color: FONT_COLORS[12], shadow: "2px 2px 4px rgba(0,0,0,0.4)" },
-    isNight: false,
-  });
-
-  useEffect(() => {
-    const updateStyling = () => {
-      const hour = new Date().getHours();
-      const color = FONT_COLORS[hour];
-      const isNight = hour >= 19 || hour < 5;
-      const shadow = isNight 
-        ? "0 0 7px rgba(255, 255, 255, 0.2), 0 0 10px rgba(255, 255, 255, 0.1)" 
-        : "2px 2px 4px rgba(0,0,0,0.4)";
-
-      setTimeStyles({
-        sky: SKY_COLOR_PALETTE[hour],
-        font: { color, shadow },
-        isNight
-      });
-    };
-    
-    updateStyling();
-    const intervalId = setInterval(updateStyling, 60000);
-    return () => clearInterval(intervalId);
-  }, []);
+  // All the time-related useState and useEffect logic has been correctly moved out.
 
   const handleLanguageSelect = useCallback((lang: Language) => {
     setLanguage(lang);
@@ -79,14 +57,18 @@ function HomePage() {
   };
 
   return (
-    <div className="w-screen h-screen">
+    // 1. 这是新的“父容器”，一个垂直排列、占满整个屏幕的 Flexbox
+    <div className="flex flex-col h-screen w-screen">
       
+      {/* 背景盒子保持不变 */}
       <div className="fixed top-0 left-0 w-full h-full -z-10">
         <ThreeScene targetCameraZ={targetCameraZ} timeStyles={timeStyles} />
       </div>
 
-      <div className="relative z-10 w-full h-full">
+      {/* 2. 这是新的“主内容区”，它会自动伸展 (flex-grow) 填满除页脚外的所有空间 */}
+      <div className="relative z-10 flex-grow">
         
+        {/* 返回按钮 */}
         {(page === 'welcome' || page === 'chat') && (
           <button 
             onClick={handleGoBack} 
@@ -98,6 +80,7 @@ function HomePage() {
           </button>
         )}
         
+        {/* 三个页面 */}
         <div className={`transition-opacity duration-1000 ${page === 'language-select' ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
           <LanguageSelectionPage onSelectLanguage={handleLanguageSelect} fontStyles={timeStyles.font} />
         </div>
@@ -108,6 +91,10 @@ function HomePage() {
           {activeBook && <ChatPage book={activeBook} fontStyles={timeStyles.font} />}
         </div>
       </div>
+
+      {/* 3. 页脚现在是 Flexbox 布局的最后一个元素，自然地待在底部 */}
+      {page === 'welcome' && <Footer />}
+
     </div>
   );
 };
